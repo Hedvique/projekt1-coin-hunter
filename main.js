@@ -11,25 +11,26 @@ if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || pan
 let panacek = document.querySelector("img")
 
 
-let startovniPozice = null
+let osaX = null;
+let osaY = null;
 
-function test(event) {
+function pohybPanacka(event) {
 	if (event.key === "ArrowDown") {
 		panacek.src = '/obrazky/panacek.png'
-		startovniPozice++;
-		panacek.style.top = startovniPozice + 'px';
-	} else if (event.key === "ArrowLeft") {
-		panacek.src = '/obrazky/panacek-vlevo.png'
-		startovniPozice--;
-		panacek.style.left = startovniPozice + 'px';
+		osaY++;
+		panacek.style.top = osaY + 'px';
 	} else if (event.key === "ArrowUp") {
 		panacek.src = '/obrazky/panacek-nahoru.png'
-		startovniPozice--;
-		panacek.style.top = startovniPozice + 'px';
-	} else if(event.key === "ArrowRight") {
+		osaY--;
+		panacek.style.top = osaY + 'px';
+	} else if (event.key === "ArrowLeft") {
+		panacek.src = '/obrazky/panacek-vlevo.png'
+		osaX--;
+		panacek.style.left = osaX + 'px';
+	}else if(event.key === "ArrowRight") {
 		panacek.src = '/obrazky/panacek-vpravo.png'
-		startovniPozice++;
-		panacek.style.left = startovniPozice + 'px';
+		osaX++;
+		panacek.style.left = osaX + 'px';
 	}
 }
 
