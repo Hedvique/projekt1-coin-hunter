@@ -49,3 +49,7 @@ body {
 #panacek {
 	z-index: 1;
 }
+
+button {
+	margin-left: 30px;
+}

@@ -8,35 +8,43 @@ if (!( panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || pan
 
 // sem začni psát svůj program
 
-let panacek = document.querySelector("img")
+let panacek = document.querySelector("img");
+let mince = document.querySelector("#mince");
+let hudba = document.querySelector("#hudba")
+
+let pohyb = 10
+let panacekX = panacek.style.left;
+let panacekY = panacek.style.top;
+
+
 
 panacek.style.top = parseInt(window.innerHeight / 2) + 'px';
 panacek.style.left = parseInt(window.innerWidth / 2) + 'px';
 
-let osaX = panacek.style.left;
-let osaY = panacek.style.top;
-
-
-let pohyb = null
-
 function pohybPanacka(event) {
-	if (event.key === "ArrowDown" && (parseInt(osaY) + pohyb) <= window.innerHeight) {
+	panacekX = panacek.style.left;
+	panacekY = panacek.style.top;
+
+	if (event.key === "ArrowDown" && (parseInt(panacekY) + pohyb) <= window.innerHeight) {
 		panacek.src = '/obrazky/panacek.png';
-		pohyb += 10;
-		panacek.style.top = parseInt(osaY) + pohyb + "px";
-	} else if (event.key === "ArrowUp" && (parseInt(osaY) - pohyb) <= window.innerHeight) {
+		hudba.play()
+		panacek.style.top = parseInt(panacekY) + pohyb + "px";
+	} else if (event.key === "ArrowUp" && (parseInt(panacekY) - pohyb) >= 0) {
 		panacek.src = '/obrazky/panacek-nahoru.png';
-		pohyb -= 10;
-		panacek.style.top = parseInt(osaY) + pohyb + "px";
-	} else if (event.key === "ArrowLeft" && (parseInt(osaX) - pohyb) <= window.innerWidth) {
-		panacek.src = '/obrazky/panacek-vlevo.png';
-		pohyb -= 10;
-		panacek.style.left = parseInt(osaX) + pohyb + "px";
-	} else if (event.key === "ArrowRight" && (parseInt(osaX) + pohyb) <= window.innerWidth) {
+		panacek.style.top = parseInt(panacekY) - pohyb + "px";
+		hudba.play()
+	} else if (event.key === "ArrowRight" && (parseInt(panacekX) + pohyb) <= window.innerWidth) {
 		panacek.src = '/obrazky/panacek-vpravo.png';
-		pohyb += 10;
-		panacek.style.left = parseInt(osaX) + pohyb + "px"
+		panacek.style.left = parseInt(panacekX) + pohyb + "px";
+		hudba.play()
+	} else if (event.key === "ArrowLeft" && (parseInt(panacekX) - pohyb) >= 0) {
+		panacek.src = '/obrazky/panacek-vlevo.png';
+		panacek.style.left = parseInt(panacekX) - pohyb + "px"
+		hudba.play()
 	}
 }
+
+
+
 
 
