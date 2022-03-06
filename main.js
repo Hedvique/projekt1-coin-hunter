@@ -12,15 +12,29 @@ let panacek = document.querySelector("img");
 let mince = document.querySelector("#mince");
 let hudba = document.querySelector("#hudba")
 
+panacek.style.width = "64px";
+panacek.style.height = "70px";
+mince.style.width = "36px";
+mince.style.height = "36px";
+
 let pohyb = 10
-let panacekX = panacek.style.left;
-let panacekY = panacek.style.top;
-let minceX = Math.floor(Math.random()*window.innerWidth);
-let minceY = Math.floor(Math.random()*window.innerHeight);
+let panacekX = parseInt(window.innerWidth + "px");
+let panacekY = parseInt(window.innerHeight + "px");
+let minceX = Math.floor(Math.random() * window.innerWidth);
+let minceY = Math.floor(Math.random() * window.innerHeight);
+let panacekVyska = parseInt(panacek.style.height);
+let panacekSirka = parseInt(panacek.style.width);
+let minceSirka = parseInt(mince.style.width);
+let minceVyska = parseInt(mince.style.width);
+console.log()
 
+function startovniPozice() {
+	panacek.style.top = parseInt(window.innerHeight / 2) + "px";
+	panacek.style.left = parseInt(window.innerWidth / 2) + 'px';
+	mince.style.left = minceX + "px";
+	mince.style.top = minceY + "px";
+}
 
-panacek.style.top = parseInt(window.innerHeight / 2) + 'px';
-panacek.style.left = parseInt(window.innerWidth / 2) + 'px';
 
 function pohybPanacka(event) {
 	panacekX = panacek.style.left;
@@ -42,13 +56,13 @@ function pohybPanacka(event) {
 		panacek.src = '/obrazky/panacek-vlevo.png';
 		panacek.style.left = parseInt(panacekX) - pohyb + "px"
 		hudba.play()
+	} else if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
+		// panacek a mince se prekryvaji
+		//mince.style.display = 'none'
+		console.log(5)
 	}
 }
 
-function startovniPozice(){
-	mince.style.left = minceX + "px";
-	mince.style.top = minceY + "px";
-}
 
 
 
