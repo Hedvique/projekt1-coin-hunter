@@ -15,7 +15,8 @@ let hudba = document.querySelector("#hudba")
 let pohyb = 10
 let panacekX = panacek.style.left;
 let panacekY = panacek.style.top;
-
+let minceX = Math.floor(Math.random()*window.innerWidth);
+let minceY = Math.floor(Math.random()*window.innerHeight);
 
 
 panacek.style.top = parseInt(window.innerHeight / 2) + 'px';
@@ -44,7 +45,10 @@ function pohybPanacka(event) {
 	}
 }
 
-
+function startovniPozice(){
+	mince.style.left = minceX + "px";
+	mince.style.top = minceY + "px";
+}
 
 
 
