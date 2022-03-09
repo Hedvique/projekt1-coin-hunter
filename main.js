@@ -68,7 +68,7 @@ function pohybPanacka(event) {
 	panacekY = parseInt(panacek.style.top);
 	
 	if (event.key === "ArrowDown" && (panacekY + pohyb) <= window.innerHeight) {
-		panacek.src = '/obrazky/panacek.png';
+		panacek.src = 'obrazky/panacek.png';
 		hudba.play()
 		panacek.style.top = panacekY + pohyb + "px";
 	} if (event.key === "ArrowUp" && panacekY - pohyb >= 0) {
