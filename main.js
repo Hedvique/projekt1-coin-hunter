@@ -49,7 +49,7 @@ function vyhra(){
 	if(pricitacScore >= 5){
 		hudba.pause()
 		zvukFanfara.play()
-		alert("Vyhrál jsi! Chceš hrát znovu?")
+		confirm("Vyhrál jsi! Chceš hrát znovu?")
 		window.location.reload()
 	}
 }
