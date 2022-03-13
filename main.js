@@ -32,21 +32,21 @@ let minceSirka = 36;
 let minceVyska = 36;
 
 function startovniPozice() {
-	panacek.style.top 
-	panacek.style.left 
+	panacek.style.top
+	panacek.style.left
 	mince.style.left = minceX + "px";
 	mince.style.top = minceY + "px";
 }
 
-function startovniPoziceMince(){
+function startovniPoziceMince() {
 	minceX = Math.floor((Math.random() * window.innerWidth) + 1);
 	minceY = Math.floor((Math.random() * window.innerHeight) + 1);
 	mince.style.left = minceX + "px";
 	mince.style.top = minceY + "px";
 }
 
-function vyhra(){
-	if(pricitacScore >= 5){
+function vyhra() {
+	if (pricitacScore >= 5) {
 		hudba.pause()
 		zvukFanfara.play()
 		confirm("Vyhrál jsi! Chceš hrát znovu?")
@@ -54,7 +54,7 @@ function vyhra(){
 	}
 }
 
-function panacekSebralMinci(){
+function panacekSebralMinci() {
 	startovniPoziceMince()
 	zvukMince.play()
 	pricitacScore++
@@ -66,7 +66,7 @@ function panacekSebralMinci(){
 function pohybPanacka(event) {
 	panacekX = parseInt(panacek.style.left);
 	panacekY = parseInt(panacek.style.top);
-	
+
 	if (event.key === "ArrowDown" && (panacekY + pohyb) <= window.innerHeight) {
 		panacek.src = '/obrazky/panacek.png';
 		hudba.play()
@@ -83,7 +83,7 @@ function pohybPanacka(event) {
 		panacek.src = '/obrazky/panacek-vlevo.png';
 		panacek.style.left = panacekX - pohyb + "px"
 		hudba.play()
-	} 
+	}
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
 		// panacek a mince se prekryvaji
 		panacekSebralMinci()
