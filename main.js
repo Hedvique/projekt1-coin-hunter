@@ -32,8 +32,8 @@ let minceSirka = 36;
 let minceVyska = 36;
 
 function startovniPozice() {
-	panacek.style.top
-	panacek.style.left
+	panacek.style.top;
+	panacek.style.left;
 	mince.style.left = minceX + "px";
 	mince.style.top = minceY + "px";
 }
@@ -47,10 +47,10 @@ function startovniPoziceMince() {
 
 function vyhra() {
 	if (pricitacScore >= 5) {
-		hudba.pause()
-		zvukFanfara.play()
-		confirm("Vyhrál jsi! Chceš hrát znovu?")
-		window.location.reload()
+		hudba.pause();
+		zvukFanfara.play();
+		confirm("Vyhrál jsi! Chceš hrát znovu?");
+		window.location.reload();
 	}
 }
 
